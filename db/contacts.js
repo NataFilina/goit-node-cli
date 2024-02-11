@@ -29,7 +29,7 @@ async function removeContact(contactId) {
   const removedContact = contacts[index];
   contacts.splice(index, 1);
   await writeContacts(contacts);
-  return console.log(removedContact);
+  return removedContact;
 }
 
 async function addContact(name, email, phone) {
@@ -37,7 +37,7 @@ async function addContact(name, email, phone) {
   const newContact = { id: crypto.randomUUID(), name, email, phone };
   contacts.push(newContact);
   await writeContacts(contacts);
-  return console.log(newContact);
+  return newContact;
 }
 
 module.exports = { listContacts, getContactById, removeContact, addContact };
